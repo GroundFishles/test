@@ -22,7 +22,7 @@ on:
         default: MindTheGapps
       root-sol:
         type: choice
-        description: "Root solution. "none" - without root:"
+        description: ""Root solution. "none" - without root:""
         required: true
         options: [magisk, none]
         default: magisk

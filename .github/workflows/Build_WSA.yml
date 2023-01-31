@@ -12,26 +12,26 @@ on:
         type: choice
         description: "Release type of WSA. RP=Release Preview, WIS=Insider Slow, WIF=Insider Fast:"
         required: true
-        options: ["retail","RP","WIS","WIF"]
-        default: "RP"
+        options: [retail, RP, WIS, WIF]
+        default: RP
       gapps-brand:
         type: choice
         description: "GApps brand. "none" for no integration of GApps:"
         required: true
-        options: ["MindTheGapps","none"]
-        default: "MindTheGapps"
+        options: [MindTheGapps, none]
+        default: MindTheGapps
       root-sol:
         type: choice
         description: "Root solution. "none" - without root:"
         required: true
-        options: ["magisk","none"]
-        default: "magisk"
+        options: [magisk, none]
+        default: magisk
       magisk-ver:
         type: choice
         description: "Magisk version:"
         required: true
-        options: ["stable","beta","canary","debug"]
-        default: "stable"
+        options: [stable, beta, canary, debug]
+        default: stable
 jobs:
   Build-WSA:
     runs-on: ubuntu-latest

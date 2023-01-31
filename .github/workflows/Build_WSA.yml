@@ -33,7 +33,7 @@ on:
         options: ["stable","beta","canary","debug"]
         default: "stable"
 jobs:
-  build:
+  Build-WSA:
     runs-on: ubuntu-latest
     steps:
       - name: Install dependencies

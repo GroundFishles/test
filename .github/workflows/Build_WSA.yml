@@ -16,13 +16,13 @@ on:
         default: RP
       gapps-brand:
         type: choice
-        description: ""GApps brand. "none" for no integration of GApps:""
+        description: "GApps brand. “none“ for no integration of GApps:"
         required: true
         options: [MindTheGapps, none]
         default: MindTheGapps
       root-sol:
         type: choice
-        description: ""Root solution. "none" - without root:""
+        description: "Root solution. “none“ - without root:"
         required: true
         options: [magisk, none]
         default: magisk

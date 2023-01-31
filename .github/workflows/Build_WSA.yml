@@ -16,7 +16,7 @@ on:
         default: RP
       gapps-brand:
         type: choice
-        description: "GApps brand. "none" for no integration of GApps:"
+        description: ""GApps brand. "none" for no integration of GApps:""
         required: true
         options: [MindTheGapps, none]
         default: MindTheGapps

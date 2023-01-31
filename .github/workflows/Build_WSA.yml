@@ -48,7 +48,7 @@ jobs:
           repository: LSPosed/MagiskOnWSALocal
       - name: Build WSA
         run: |
-          cd ./MagiskOnWSALocal
+          cd MagiskOnWSALocal
           scripts/build.sh \
           --arch ${{ inputs.arch }} \
           --release-type ${{ inputs.release-type }} \

@@ -55,7 +55,7 @@ jobs:
       - name: Download Original WSA
         run: |
           wget -P ./MagiskOnWSALocal/download/ ${{ inputs.custom-wsa }}
-          mv ./MagiskOnWSALocal/download/*.Msixbundle ./download/wsa-retail.zip
+          mv ./MagiskOnWSALocal/download/*.Msixbundle ./MagiskOnWSALocal/download/wsa-retail.zip
       - name: Build WSA
         run: |
           cd ./MagiskOnWSALocal

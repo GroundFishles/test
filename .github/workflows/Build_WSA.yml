@@ -36,10 +36,11 @@ on:
         type: choice
         description: "Remove or keep Amazon Appstore:"
         required: true
-        options: [REMOVE_AMAZON, Keep Amazon]
+        options: [--remove-amazon, Keep Amazon]
         default: --remove-amazon
 jobs:
   Build-WSA:
+   -name: Build WSA
     runs-on: ubuntu-latest
     steps:
       - name: Install dependencies

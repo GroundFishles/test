@@ -12,12 +12,8 @@ on:
         type: choice
         description: "Release type of WSA. RP=Release Preview, WIS=Insider Slow, WIF=Insider Fast:"
         required: true
-        options: [retail, RP, WIS, WIF, Custom]
+        options: [retail, RP, WIS, WIF]
         default: RP
-      custom-wsa:
-        description: "Custom WSA URL"
-        required: false
-        type: string
       gapps-brand:
         type: choice
         description: "GApps brand. “none“ for no integration of GApps:"
@@ -57,30 +53,16 @@ jobs:
         with:
           repository: LSPosed/MagiskOnWSALocal
           path: MagiskOnWSALocal
-         
       - name: Build WSA
         run: |
           cd ./MagiskOnWSALocal
-          if ${{ inputs.release-type }}=Custom; then
-            wget -P ./download/ ${{ inputs.custom-wsa }}
-            mv ./download/*.Msixbundle ./download/wsa-${{ matrix.release }}.zip       
-            scripts/build.sh \
-            --arch ${{ inputs.arch }} \
-            ${{ inputs.release-type }} \
-            ${{ inputs.remove-amazon }} \
-            --magisk-ver ${{ inputs.magisk-ver }} \
-            --gapps-brand ${{ inputs.gapps-brand }} \
-            --root-sol ${{ inputs.root-sol }}
-            --skip-download-wsa
-          else
-            scripts/build.sh \
-            --arch ${{ inputs.arch }} \
-            --release-type ${{ inputs.release-type }} \
-            ${{ inputs.remove-amazon }} \
-            --magisk-ver ${{ inputs.magisk-ver }} \
-            --gapps-brand ${{ inputs.gapps-brand }} \
-            --root-sol ${{ inputs.root-sol }}
-          fi
+          scripts/build.sh \
+          --arch ${{ inputs.arch }} \
+          --release-type ${{ inputs.release-type }} \
+          ${{ inputs.remove-amazon }} \
+          --magisk-ver ${{ inputs.magisk-ver }} \
+          --gapps-brand ${{ inputs.gapps-brand }} \
+          --root-sol ${{ inputs.root-sol }}
       - name: Archiving and compressing artifact
         run: |
           cd MagiskOnWSALocal/output

@@ -1,4 +1,4 @@
-name: Custom Build WSA
+name: Advenced Build WSA
 on:
   workflow_dispatch:
     inputs:

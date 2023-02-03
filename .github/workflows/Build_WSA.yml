@@ -40,7 +40,7 @@ on:
         default: --remove-amazon
 jobs:
   Build-WSA:
- -name: Build WSA
+   -name: Build WSA
     runs-on: ubuntu-latest
     steps:
       - name: Install dependencies

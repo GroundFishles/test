@@ -62,9 +62,8 @@ jobs:
         run: |
           cd ./MagiskOnWSALocal
           if ${{ inputs.release-type }}=Custom; then
-            wget -P ./download/wsa ${{ inputs.custom-wsa }}
-            mv ./download/*.Msixbundle ./download/wsa-${{ matrix.release }}.zip
-            rm -rf ./download/wsa       
+            wget -P ./download/ ${{ inputs.custom-wsa }}
+            mv ./download/*.Msixbundle ./download/wsa-${{ matrix.release }}.zip       
             scripts/build.sh \
             --arch ${{ inputs.arch }} \
             ${{ inputs.release-type }} \

@@ -52,13 +52,10 @@ jobs:
         with:
           repository: LSPosed/MagiskOnWSALocal
           path: MagiskOnWSALocal
-      - name: Download WSA Custom
-        env:
-          USER_CODE: ${{ secrets.USER_CODE }}
-        if: env.USER_CODE == null
+      - name: Download Original WSA
         run: |
-          wget -P ./download/ ${{ inputs.custom-wsa }}
-          mv ./download/*.Msixbundle ./download/wsa-retail.zip
+          wget -P ./MagiskOnWSALocal/download/ ${{ inputs.custom-wsa }}
+          mv ./MagiskOnWSALocal/download/*.Msixbundle ./download/wsa-retail.zip
       - name: Build WSA
         run: |
           cd ./MagiskOnWSALocal

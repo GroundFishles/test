@@ -36,7 +36,7 @@ on:
         type: choice
         description: "Remove or keep Amazon Appstore:"
         required: true
-        options: [--remove-amazon, Keep Amazon]
+        options: [REMOVE_AMAZON, Keep Amazon]
         default: --remove-amazon
 jobs:
   Build-WSA:

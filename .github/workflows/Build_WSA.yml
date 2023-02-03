@@ -12,8 +12,12 @@ on:
         type: choice
         description: "Release type of WSA. RP=Release Preview, WIS=Insider Slow, WIF=Insider Fast:"
         required: true
-        options: [retail, RP, WIS, WIF]
+        options: [retail, RP, WIS, WIF, Custom]
         default: RP
+      custom-wsa:
+        description: "Custom WSA URL"
+        required: false
+        type: string
       gapps-brand:
         type: choice
         description: "GApps brand. “none“ for no integration of GApps:"
@@ -53,16 +57,32 @@ jobs:
         with:
           repository: LSPosed/MagiskOnWSALocal
           path: MagiskOnWSALocal
+          wget -P ./download/wsa https://github.com/sn-o-w/WSA-bundle/releases/download/v2211.40000.11.0/MicrosoftCorporationII.WindowsSubsystemForAndroid_2211.40000.11.0_neutral___8wekyb3d8bbwe.7z
+         
       - name: Build WSA
         run: |
           cd ./MagiskOnWSALocal
-          scripts/build.sh \
-          --arch ${{ inputs.arch }} \
-          --release-type ${{ inputs.release-type }} \
-          ${{ inputs.remove-amazon }} \
-          --magisk-ver ${{ inputs.magisk-ver }} \
-          --gapps-brand ${{ inputs.gapps-brand }} \
-          --root-sol ${{ inputs.root-sol }}
+          if ${{ inputs.release-type }}=Custom; then
+            wget -P ./download/wsa ${{ inputs.custom-wsa }}
+            mv ./download/*.Msixbundle ./download/wsa-${{ matrix.release }}.zip
+            rm -rf ./download/wsa       
+            scripts/build.sh \
+            --arch ${{ inputs.arch }} \
+            ${{ inputs.release-type }} \
+            ${{ inputs.remove-amazon }} \
+            --magisk-ver ${{ inputs.magisk-ver }} \
+            --gapps-brand ${{ inputs.gapps-brand }} \
+            --root-sol ${{ inputs.root-sol }}
+            --skip-download-wsa
+          else
+            scripts/build.sh \
+            --arch ${{ inputs.arch }} \
+            --release-type ${{ inputs.release-type }} \
+            ${{ inputs.remove-amazon }} \
+            --magisk-ver ${{ inputs.magisk-ver }} \
+            --gapps-brand ${{ inputs.gapps-brand }} \
+            --root-sol ${{ inputs.root-sol }}
+          fi
       - name: Archiving and compressing artifact
         run: |
           cd MagiskOnWSALocal/output

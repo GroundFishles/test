@@ -65,6 +65,7 @@ jobs:
           scripts/build.sh \
           --arch ${{ inputs.arch }} \
           --release-type retail \
+          --skip-download-wsa \
           ${{ inputs.remove-amazon }} \
           --magisk-ver ${{ inputs.magisk-ver }} \
           --gapps-brand ${{ inputs.gapps-brand }} \

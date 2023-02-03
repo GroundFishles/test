@@ -54,12 +54,11 @@ jobs:
           path: MagiskOnWSALocal
       - name: Download Original WSA
         run: |
-          wget -P ./MagiskOnWSALocal/download/ ${{ inputs.custom-wsa }}
-          mv ./MagiskOnWSALocal/download/*.Msixbundle ./MagiskOnWSALocal/download/wsa-retail.zip
+          aria2c -d ./MagiskOnWSALocal/download/ -o wsa-retail.zip ${{ inputs.custom-wsa }}
       - name: Build WSA
         run: |
           cd ./MagiskOnWSALocal
-          scripts/build.sh \
+          scripts/build.sh
           --arch ${{ inputs.arch }} \
           --release-type retail \
           --skip-download-wsa \

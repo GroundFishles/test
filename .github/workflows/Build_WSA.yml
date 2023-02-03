@@ -57,7 +57,6 @@ jobs:
         with:
           repository: LSPosed/MagiskOnWSALocal
           path: MagiskOnWSALocal
-          wget -P ./download/wsa https://github.com/sn-o-w/WSA-bundle/releases/download/v2211.40000.11.0/MicrosoftCorporationII.WindowsSubsystemForAndroid_2211.40000.11.0_neutral___8wekyb3d8bbwe.7z
          
       - name: Build WSA
         run: |

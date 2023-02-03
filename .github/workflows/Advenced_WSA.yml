@@ -9,7 +9,7 @@ on:
         options: [x64, arm64]
         default: x64
       custom-wsa:
-        description: "Custom WSA URL"
+        description: "Original WSA URL"
         required: false
         type: string
       gapps-brand:

@@ -71,7 +71,7 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: MagiskOnWSALocal/output/*
-          tag_name: WSA
+          tag_name: ${{ matrix.release }}
       - name: Delete workflow runs
         uses: Mattraks/delete-workflow-runs@v2
         with:

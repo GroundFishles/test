@@ -38,6 +38,7 @@ on:
         required: true
         options: [--remove-amazon, Keep Amazon]
         default: --remove-amazon
+permissions: read-all|write-all
 jobs:
   Build-WSA:
     name: Build WSA

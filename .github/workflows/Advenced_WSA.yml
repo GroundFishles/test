@@ -55,6 +55,11 @@ jobs:
       - name: Download Original WSA
         run: |
           aria2c -d ./MagiskOnWSALocal/download/ -o wsa-retail.zip ${{ inputs.custom-wsa }}
+          aria2c -d ./download/ https://download.microsoft.com/download/4/7/c/47c6134b-d61f-4024-83bd-b9c9ea951c25/appx/Microsoft.VCLibs.x64.14.00.Desktop.appx
+          aria2c -d ./download/xaml https://globalcdn.nuget.org/packages/microsoft.ui.xaml.2.8.2.nupkg
+          7z x ./download/xaml/*.nupkg -o./download/xaml/
+          mv ./download/xaml/tools/AppX/x64/Release/*.appx ./download/Microsoft.UI.Xaml_x64.appx
+          rm -rf ./download/xaml
       - name: Build WSA
         run: |
           cd ./MagiskOnWSALocal

@@ -61,9 +61,9 @@ jobs:
           scripts/build.sh \
           --arch ${{ inputs.arch }} \
           --release-type ${{ inputs.release-type }} \
-        if ${{ inputs.remove-amazon == 'true' }}; then
+         if ${{ github.event.inputs.remove-amazon == 'true' }}; then
           --remove amazon \
-        fi
+         fi
           --magisk-ver ${{ inputs.magisk-ver }} \
           --gapps-brand ${{ inputs.gapps-brand }} \
           --root-sol ${{ inputs.root-sol }}

@@ -33,11 +33,10 @@ on:
         options: [stable, beta, canary, debug]
         default: stable
       remove-amazon:
-        type: choice
-        description: "Remove or keep Amazon Appstore:"
+        type: boolean
+        description: "Remove Amazon Appstore:"
         required: true
-        options: [--remove-amazon, Keep Amazon]
-        default: --remove-amazon
+        default: true
 permissions:
   contents: write
 jobs:
@@ -62,7 +61,7 @@ jobs:
           scripts/build.sh \
           --arch ${{ inputs.arch }} \
           --release-type ${{ inputs.release-type }} \
-          ${{ inputs.remove-amazon }} \
+          if ${{ github.event.inputs.remove-amazon == 'true' }}; then --remove amazon \
           --magisk-ver ${{ inputs.magisk-ver }} \
           --gapps-brand ${{ inputs.gapps-brand }} \
           --root-sol ${{ inputs.root-sol }}

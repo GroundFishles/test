@@ -34,7 +34,7 @@ on:
         default: stable
       remove-amazon:
         type: boolean
-        description: "Remove Amazon Appstore:"
+        description: "Remove Amazon Appstore"
         required: true
         default: true
 permissions:
@@ -62,7 +62,7 @@ jobs:
           --arch ${{ inputs.arch }} \
           --release-type ${{ inputs.release-type }} \
         if ${{ github.event.inputs.remove-amazon == 'true' }}; then
-          --remove amazon \
+          --remove amazon
         fi
           --magisk-ver ${{ inputs.magisk-ver }} \
           --gapps-brand ${{ inputs.gapps-brand }} \

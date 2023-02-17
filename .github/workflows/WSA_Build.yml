@@ -68,7 +68,7 @@ jobs:
         run: |
           cd MagiskOnWSALocal/output
           7z a -tzip -mx=4 -saa *
-     - name: Get WSA version tag
+      - name: Get WSA version tag
         shell: bash
         run: |
           regex="WSA_(.*)_${{ inputs.arch }}"

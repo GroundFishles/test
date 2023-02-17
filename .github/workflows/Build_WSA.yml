@@ -56,17 +56,26 @@ jobs:
           repository: LSPosed/MagiskOnWSALocal
           path: MagiskOnWSALocal
       - name: Build WSA
+        if: ${{ github.event.inputs.remove-amazon == 'true' }}
         run: |
-            cd ./MagiskOnWSALocal
-            scripts/build.sh \
-            --arch ${{ inputs.arch }} \
-            --release-type ${{ inputs.release-type }} \
-          if ${{ github.event.inputs.remove-amazon != 'true' }}; then
-            --remove amazon \
-          fi
-            --magisk-ver ${{ inputs.magisk-ver }} \
-            --gapps-brand ${{ inputs.gapps-brand }} \
-            --root-sol ${{ inputs.root-sol }}
+          cd ./MagiskOnWSALocal
+          scripts/build.sh \
+          --arch ${{ inputs.arch }} \
+          --release-type ${{ inputs.release-type }} \
+          --remove amazon \
+          --magisk-ver ${{ inputs.magisk-ver }} \
+          --gapps-brand ${{ inputs.gapps-brand }} \
+          --root-sol ${{ inputs.root-sol }}
+      - name: Build WSA
+        if: ${{ github.event.inputs.remove-amazon != 'true' }}
+        run: |
+          cd ./MagiskOnWSALocal
+          scripts/build.sh \
+          --arch ${{ inputs.arch }} \
+          --release-type ${{ inputs.release-type }} \
+          --magisk-ver ${{ inputs.magisk-ver }} \
+          --gapps-brand ${{ inputs.gapps-brand }} \
+          --root-sol ${{ inputs.root-sol }}
       - name: Archiving and compressing artifact
         run: |
           cd MagiskOnWSALocal/output

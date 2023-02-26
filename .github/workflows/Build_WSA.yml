@@ -10,7 +10,7 @@ on:
     default: x64
    release_type:
     type: choice
-    description: "Release type of WSA:"
+    description: "WSA Release Channel:"
     required: true
     options: [Retail, Release Preview, Beta, Dev]
     default: Release Preview

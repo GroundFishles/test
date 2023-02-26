@@ -45,7 +45,8 @@ jobs:
           winetricks msxml6
       - uses: actions/checkout@v3
         with:
-          submodules: recursive
+          repository: LSPosed/MagiskOnWSALocal
+          path: MagiskOnWSALocal
       - name: Build WSA
         id: build_wsa
         working-directory: MagiskOnWSALocal/scripts

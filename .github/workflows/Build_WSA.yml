@@ -31,7 +31,6 @@ on:
     required: true
     default: true
     type: boolean
-permissions: write-all
 jobs:
   Build-WSA:
     name: Build WSA
@@ -85,7 +84,7 @@ jobs:
       - name: Upload a Release Asset
         uses: softprops/action-gh-release@v1
         with:
-          files: MagiskOnWSALocal/output/WSA_2301.40000.7.0_x64_Release-Nightly-with-magisk-25.2(25200)-stable-MindTheGapps-13.0-RemovedAmazon.zip
+          files: MagiskOnWSALocal/output/*
           tag_name: WSA-${{ env.wsaver }}
           name: WSA ${{ env.wsaver }}
       - name: Delete workflow runs

@@ -31,6 +31,7 @@ on:
     required: true
     default: true
     type: boolean
+permissions: write-all
 jobs:
   Build-WSA:
     name: Build WSA

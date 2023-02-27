@@ -72,7 +72,7 @@ jobs:
       - name: Archiving and compressing artifact
         working-directory: MagiskOnWSALocal/output
         run: |
-          7z a -tzip -mx=4 -mmt=104 -saa *
+          7z a -tzip -mx=4 -mmt=52 -saa *
       - name: Get WSA version tag
         shell: bash
         run: |
@@ -85,7 +85,7 @@ jobs:
       - name: Upload a Release Asset
         uses: softprops/action-gh-release@v1
         with:
-          files: "MagiskOnWSALocal/output/*.zip"
+          files: "MagiskOnWSALocal/output/WSA_2301.40000.7.0_x64_Release-Nightly-with-magisk-25.2.25200.-stable-MindTheGapps-13.0-RemovedAmazon.zip"
           tag_name: WSA-${{ env.wsaver }}
           name: WSA ${{ env.wsaver }}
       - name: Delete workflow runs

@@ -1,6 +1,8 @@
 name: delete runs
 on:
   workflow_dispatch:
+permissions:
+  actions: none
 jobs:
   del_runs:
     runs-on: ubuntu-latest

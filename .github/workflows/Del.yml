@@ -2,7 +2,7 @@ name: delete runs
 on:
   workflow_dispatch:
 permissions:
-  actions: read
+  actions: write
 jobs:
   del_runs:
     runs-on: ubuntu-latest

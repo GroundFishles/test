@@ -1,12 +1,12 @@
 name: delete runs
 on:
   workflow_dispatch:
-permissions:
-  actions: write
 jobs:
   del_runs:
     runs-on: ubuntu-latest
     steps:
+    permissions:
+      actions: write
       - name: Delete workflow runs
         uses: Mattraks/delete-workflow-runs@v2
         with:
